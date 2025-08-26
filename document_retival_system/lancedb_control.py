@@ -161,7 +161,7 @@ class LanceDBControl:
         except Exception as e:
             print(f"Error in simple search: {e}")
 
-    def search_documents(self, query: str, limit: int = 5) -> List[Dict[str, Any]]:
+    def search_documents(self, query: str, limit: int = 1) -> List[Dict[str, Any]]:
         # FIX: Ensure proper vector formatting for query
         query_embedding = self.model.compute_source_embeddings([query])[0]
         query_embedding = self._ensure_vector_format(query_embedding)
@@ -203,7 +203,9 @@ class LanceDBControl:
             try:
                 chunk_results = (self.chunks_table
                                 .search(query_embedding, vector_column_name="vector")
+                                
                                 .where(f"doc_id = '{doc_id}'")
+                                
                                 .limit(limit)
                                 .to_pandas())
                 
