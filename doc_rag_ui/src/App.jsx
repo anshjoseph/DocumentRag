@@ -3,7 +3,7 @@ import { Search, Plus, Trash2, FileText, Database, AlertCircle, CheckCircle, Eye
 
 function App() {
   // API Base URL - easily changeable
-  const API_BASE_URL = 'http://127.0.0.1:6700';
+  const API_BASE_URL = 'http://34.162.154.217:6700';
   
   const [documents, setDocuments] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
