@@ -2,3 +2,4 @@
 /test/*
 .vscode/*
 /lancedb_data/*
+/doc_rag_ui/node_module/*
